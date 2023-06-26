@@ -1,0 +1,31 @@
+<div class="container">
+  <h1 style="font-size: 50px;">Register</h1>
+  <br>
+  <form class="container" [formGroup]="registerForm" (ngSubmit)="registerUser()">
+    <mat-form-field appearance="outline" style="width: 400px;">
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="Name" formControlName = 'name'>
+      <mat-error *ngIf="registerForm.controls.name.status === 'INVALID'">Name is required</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 400px;">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput placeholder="Email" formControlName = 'email'>
+      <mat-error *ngIf="(registerForm.controls.name.status === 'INVALID')">Email is required</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 400px;">
+      <mat-label>Password</mat-label>
+      <input type="password" matInput placeholder="Password" formControlName = 'password'>
+      <mat-error *ngIf="registerForm.controls.name.status === 'INVALID'">Password is required</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 400px;">
+      <mat-label>Confirm Password</mat-label>
+      <input type="password" matInput placeholder="Confirm Password" formControlName = 'confirmPassword'>
+      <mat-error *ngIf="registerForm.controls.name.status === 'INVALID'">confirm Password is required</mat-error>
+    </mat-form-field>
+    <div class="registerButton">
+      <button mat-raised-button [routerLink]="['/login']">Login</button>
+      <button mat-raised-button color="primary">Register</button>
+    </div>
+
+  </form>
+</div>
