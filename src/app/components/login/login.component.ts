@@ -24,7 +24,6 @@ export class LoginComponent {
     return this.accountService.loginUser(loginData).subscribe({
       next : response => {
         if(response){
-          localStorage.setItem('useremail', response.toString());
           this.router.navigateByUrl('/');
         }
       },

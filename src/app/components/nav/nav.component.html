@@ -1,8 +1,15 @@
 <mat-toolbar color="primary">
   <span class="spantitle" [routerLink]="['/']">INTERNSHIP</span>
   <span class="example-spacer"></span>
-  <button mat-raised-button [routerLink]="['/login']">
+
+  <button *ngIf="!(accountService.currentUser$ | async) ; else showEmail" mat-raised-button [routerLink]="['/login']">
     Login
   </button>
-</mat-toolbar>
 
+  <ng-template #showEmail>
+    <button mat-button [matMenuTriggerFor]="menu">Hi {{userEmail}}</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="logoutUser()">Logout</button>
+    </mat-menu>
+  </ng-template>
+</mat-toolbar>
